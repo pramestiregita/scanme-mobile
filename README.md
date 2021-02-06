@@ -7,10 +7,8 @@
 [![Redux](https://img.shields.io/badge/Redux-v4.0.5-purple.svg?style=rounded-square)](https://redux.js.org/)
 
 
-<img src="src/assets/screenshoot/splashscreen.jpg" width="50">
-<img src="src/assets/screenshoot/login.jpg" width="50">
-<img src="src/assets/screenshoot/home.jpg" width="50">
-<img src="src/assets/screenshoot/success.jpg" width="50">
+<img src="src/assets/screenshoot/splashscreen.jpg" width="300"> <img src="src/assets/screenshoot/login.jpg" width="300">
+<img src="src/assets/screenshoot/home.jpg" width="300"> <img src="src/assets/screenshoot/success.jpg" width="300">
 
 ## Requirements
 1. <a href="https://nodejs.org/en/download/">Node JS</a>
