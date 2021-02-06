@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, TextInput, Keyboard} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
 import Icon from 'react-native-vector-icons/Feather';
 import {Button} from 'native-base';
 import {Formik} from 'formik';
@@ -8,17 +9,26 @@ import * as Yup from 'yup';
 
 import styled from './style';
 
+import action from '../../redux/actions';
+
 const loginSchema = Yup.object().shape({
   name: Yup.string().required('Please insert your name'),
 });
 
 export default function Login() {
-  const navigation = useNavigation();
+  const {isLogin} = useSelector((state) => state);
 
-  const doLogin = (data) => {
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  const doLogin = async (data) => {
     Keyboard.dismiss();
-    navigation.navigate('Home');
+    await dispatch(action.login(data));
   };
+
+  useEffect(() => {
+    isLogin && navigation.navigate('Home');
+  }, [isLogin, navigation]);
 
   return (
     <View style={styled.parent}>
