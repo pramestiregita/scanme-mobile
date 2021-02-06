@@ -15,7 +15,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     textAlign: 'center',
     marginBottom: 10,
-    fontSize: 16,
+    fontSize: 18,
   },
   btn: {
     marginTop: 10,

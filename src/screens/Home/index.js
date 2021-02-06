@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import styled from './style';
@@ -10,6 +10,7 @@ import QrCode from '../../components/QrCode';
 
 export default function Home() {
   const [open, setOpen] = useState(false);
+  const {data} = useSelector((state) => state);
 
   const dispatch = useDispatch();
 
@@ -19,8 +20,6 @@ export default function Home() {
 
   return (
     <>
-      {open && <Edit visible={true} />}
-
       <View style={styled.parent}>
         <View style={styled.title}>
           <Text style={styled.greet}>Hi,</Text>
@@ -28,14 +27,15 @@ export default function Home() {
             <Icon name="logout" size={30} color="maroon" />
           </TouchableOpacity>
         </View>
+        {open && <Edit visible={true} />}
         <TouchableOpacity
           onPress={() => setOpen(!open)}
           style={styled.nameWrapper}>
-          <Text style={styled.name}>Pramesti</Text>
+          <Text style={styled.name}>{data.name}</Text>
           <Icon name="pencil" size={25} />
         </TouchableOpacity>
         <View style={styled.qrWrapper}>
-          <QrCode value={'Pramesti'} />
+          <QrCode value={data.name} />
         </View>
         <TouchableOpacity style={styled.scan}>
           <Icon name="qrcode-scan" size={30} />
