@@ -7,15 +7,13 @@
 [![Redux](https://img.shields.io/badge/Redux-v4.0.5-purple.svg?style=rounded-square)](https://redux.js.org/)
 
 
-<img src="src/assets/screenshoot/splashscreen.jpg" width="300"> <img src="src/assets/screenshoot/login.jpg" width="300">
-<img src="src/assets/screenshoot/home.jpg" width="300"> <img src="src/assets/screenshoot/success.jpg" width="300">
+<img src="src/assets/screenshoot/splashscreen.jpg" width="150"> <img src="src/assets/screenshoot/login.jpg" width="150">
+<img src="src/assets/screenshoot/home.jpg" width="150"> <img src="src/assets/screenshoot/success.jpg" width="150">
 
 ## Requirements
-1. <a href="https://nodejs.org/en/download/">Node JS</a>
-2. Node_modules
-3. Physical device or Android emulator
-4. Code editor (Visual Studio Code)
-5. Web Browser (Google Chrome)
+1. Physical device or Android emulator
+2. Code editor (Visual Studio Code)
+3. Web Browser (Google Chrome)
 
 ## How to run the app?
 1. Open app's directory in CMD/Terminal
