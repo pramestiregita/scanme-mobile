@@ -16,6 +16,7 @@ export default StyleSheet.create({
   },
   btn: {
     marginTop: 10,
+    backgroundColor: 'skyblue',
   },
   btnText: {
     color: 'white',

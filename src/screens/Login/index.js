@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, TextInput} from 'react-native';
+import {View, Text, TextInput, Keyboard} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 import {Button} from 'native-base';
 import {Formik} from 'formik';
@@ -12,12 +13,19 @@ const loginSchema = Yup.object().shape({
 });
 
 export default function Login() {
+  const navigation = useNavigation();
+
+  const doLogin = (data) => {
+    Keyboard.dismiss();
+    navigation.navigate('Home');
+  };
+
   return (
     <View style={styled.parent}>
       <Formik
         initialValues={{name: ''}}
         validationSchema={loginSchema}
-        onSubmit={(values) => console.log(values)}>
+        onSubmit={(values) => doLogin(values)}>
         {({handleBlur, handleChange, handleSubmit, errors}) => (
           <>
             <TextInput
