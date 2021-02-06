@@ -32,6 +32,9 @@ export default (state = initialState, action) => {
         data: action.payload.data.data,
       };
     }
+    case 'LOGOUT': {
+      return initialState;
+    }
     default: {
       return state;
     }

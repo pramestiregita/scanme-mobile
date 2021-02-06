@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import {useDispatch} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import styled from './style';
@@ -10,6 +11,12 @@ import QrCode from '../../components/QrCode';
 export default function Home() {
   const [open, setOpen] = useState(false);
 
+  const dispatch = useDispatch();
+
+  const doLogout = () => {
+    dispatch({type: 'LOGOUT'});
+  };
+
   return (
     <>
       {open && <Edit visible={true} />}
@@ -17,7 +24,7 @@ export default function Home() {
       <View style={styled.parent}>
         <View style={styled.title}>
           <Text style={styled.greet}>Hi,</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => doLogout()}>
             <Icon name="logout" size={30} color="maroon" />
           </TouchableOpacity>
         </View>
