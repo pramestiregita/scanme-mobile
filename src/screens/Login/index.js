@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import {Button} from 'native-base';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+import RNBootSplash from 'react-native-bootsplash';
 
 import styled from './style';
 
@@ -20,6 +21,10 @@ export default function Login() {
 
   const navigation = useNavigation();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    RNBootSplash.hide({});
+  }, []);
 
   const doLogin = async (data) => {
     Keyboard.dismiss();

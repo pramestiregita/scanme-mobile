@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import RNBootSplash from 'react-native-bootsplash';
 
 import styled from './style';
 
@@ -15,6 +16,10 @@ export default function Home() {
 
   const dispatch = useDispatch();
   const navigation = useNavigation();
+
+  useEffect(() => {
+    RNBootSplash.hide({});
+  }, []);
 
   const doLogout = () => {
     dispatch({type: 'LOGOUT'});
