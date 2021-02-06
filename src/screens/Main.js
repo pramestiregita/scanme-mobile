@@ -5,6 +5,8 @@ import {useSelector} from 'react-redux';
 
 import Login from '../screens/Login';
 import Home from '../screens/Home';
+import Scan from '../screens/Scan';
+import FriendName from '../screens/FriendName';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +29,16 @@ export default function Main() {
             options={{title: '', headerShown: false}}
             name="Home"
             component={Home}
+          />
+          <Stack.Screen
+            options={{title: '', headerShown: false}}
+            name="Scan"
+            component={Scan}
+          />
+          <Stack.Screen
+            options={{title: '', headerShown: false}}
+            name="FriendName"
+            component={FriendName}
           />
         </Stack.Navigator>
       )}

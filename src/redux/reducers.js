@@ -5,7 +5,9 @@ const initialState = {
   isLogin: false,
   isSuccess: false,
   isChange: false,
+  isSaved: false,
   alertMsg: '',
+  friend: '',
 };
 
 export default (state = initialState, action) => {
@@ -82,6 +84,20 @@ export default (state = initialState, action) => {
     }
     case 'LOGOUT': {
       return initialState;
+    }
+    case 'SAVE': {
+      return {
+        ...state,
+        friend: action.payload,
+        isSaved: true,
+      };
+    }
+    case 'CLEAR': {
+      return {
+        ...state,
+        friend: '',
+        isSaved: false,
+      };
     }
     default: {
       return state;

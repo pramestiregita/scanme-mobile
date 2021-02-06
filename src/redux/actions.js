@@ -18,4 +18,8 @@ export default {
     type: 'LOGIN',
     payload: http().post(`user/delete/${id}`),
   }),
+  save: (name) => ({
+    type: 'SAVE',
+    payload: name,
+  }),
 };

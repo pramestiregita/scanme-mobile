@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import styled from './style';
@@ -13,6 +14,7 @@ export default function Home() {
   const {data} = useSelector((state) => state);
 
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   const doLogout = () => {
     dispatch({type: 'LOGOUT'});
@@ -37,7 +39,9 @@ export default function Home() {
         <View style={styled.qrWrapper}>
           <QrCode value={data.name} />
         </View>
-        <TouchableOpacity style={styled.scan}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Scan')}
+          style={styled.scan}>
           <Icon name="qrcode-scan" size={30} />
           <Text style={styled.scanText}>Scan QR Code</Text>
         </TouchableOpacity>
