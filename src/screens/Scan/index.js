@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
+
+import styled from './style';
 
 import action from '../../redux/actions';
 
@@ -31,24 +33,24 @@ export default function Scan() {
   }, [isSaved, navigation]);
 
   return (
-    <View style={styles.parent}>
+    <View style={styled.parent}>
       <QRCodeScanner
         reactivate={active}
         onRead={onSuccess}
         flashMode={RNCamera.Constants.FlashMode.off}
         showMarker={true}
-        markerStyle={styles.marker}
+        markerStyle={styled.marker}
         topContent={
           <View>
-            <Text style={styles.centerText}>Scan your friend QR Code!</Text>
+            <Text style={styled.centerText}>Scan your friend QR Code!</Text>
           </View>
         }
-        topViewStyle={styles.topStyles}
+        topViewStyle={styled.topStyles}
         bottomContent={
           <TouchableOpacity
             onPress={() => goHome()}
-            style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>Cancel</Text>
+            style={styled.buttonTouchable}>
+            <Text style={styled.buttonText}>Cancel</Text>
           </TouchableOpacity>
         }
         cameraTimeout={15000}
@@ -56,29 +58,3 @@ export default function Scan() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  parent: {
-    flex: 1,
-  },
-  marker: {
-    borderColor: '#fff',
-    borderRadius: 10,
-  },
-  topStyles: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  centerText: {
-    color: '#588bae',
-    fontSize: 22,
-    fontWeight: 'bold',
-  },
-  buttonText: {
-    fontSize: 21,
-    color: '#588bae',
-  },
-  buttonTouchable: {
-    padding: 16,
-  },
-});
