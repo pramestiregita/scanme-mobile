@@ -6,6 +6,12 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
+    backgroundColor: 'white',
+  },
+  logo: {
+    width: 70,
+    height: 70,
+    marginBottom: 50,
   },
   input: {
     width: '100%',

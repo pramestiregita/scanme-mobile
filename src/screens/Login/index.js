@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, Text, TextInput, Keyboard} from 'react-native';
+import {View, Text, TextInput, Keyboard, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import Icon from 'react-native-vector-icons/Feather';
@@ -38,6 +38,10 @@ export default function Login() {
         onSubmit={(values) => doLogin(values)}>
         {({handleBlur, handleChange, handleSubmit, errors}) => (
           <>
+            <Image
+              style={styled.logo}
+              source={require('../../assets/logo.jpeg')}
+            />
             <TextInput
               style={styled.input}
               placeholder="Insert your name"
