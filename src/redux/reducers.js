@@ -79,6 +79,7 @@ export default (state = initialState, action) => {
         isLoading: false,
         isError: false,
         isSuccess: true,
+        isChange: false,
         data: action.payload.data.data,
       };
     }

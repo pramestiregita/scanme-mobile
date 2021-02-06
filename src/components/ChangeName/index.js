@@ -31,17 +31,19 @@ export default function ChangeName({visible}) {
   };
 
   useEffect(() => {
-    isChange && getData();
+    if (isChange) {
+      getData();
+      setOpen(false);
+    }
   }, [isChange]);
 
   return (
-    <Modal onBackdropPress={() => setOpen(false)} isVisible={open}>
+    <Modal isVisible={open}>
       <View style={styled.modal}>
         <Formik
           initialValues={{name: data.name}}
           validationSchema={editSchema}
           onSubmit={(values) => {
-            // setOpen(false);
             saveChange(values);
           }}>
           {({handleBlur, handleChange, handleSubmit, values, errors}) => (
